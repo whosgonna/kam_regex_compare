@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+
+    kamailio:
+      build: ./kamailio
+      command: -de
+      volumes:
+        - ./kamailio:/etc/kamailio
+
+    sipp:
+      build: ./kamailio
+      entrypoint: sh
+      working_dir: /sipp
+      tty: true
+      volumes:
+        - ./sipp:/sipp
+
